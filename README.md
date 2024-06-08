@@ -1,10 +1,11 @@
 # LineFormer - Rethinking Chart Data Extraction as Instance Segmentation
 
-Official repository for the ICDAR 2023 Paper
+(Fork of the) Official repository for the ICDAR 2023 Paper
 
 [<u>[Link]</u>](https://link.springer.com/chapter/10.1007/978-3-031-41734-4_24) to the paper.
 
 ## Quantitative Results
+
 | Dataset             | AdobeSynth19 Visual Element Detection[^1] | Data Extraction[^2] | UB-PMC22 Visual Element Detection | Data Extraction | LineEX Visual Element Detection | Data Extraction |
 |---------------------|------------------------------------------|---------------------|----------------------------------|-----------------|---------------------------------|----------------|
 | [ChartOCR](https://openaccess.thecvf.com/content/WACV2021/papers/Luo_ChartOCR_Data_Extraction_From_Charts_Images_via_a_Deep_Hybrid_WACV_2021_paper.pdf)        | 84.67                                    | 55                  | 83.89                            | 72.9            | 86.47                           | 78.25          |
@@ -21,6 +22,7 @@ Official repository for the ICDAR 2023 Paper
 ``` -->
 
 ## Model Usage
+
 ### Install Environment
 
 This code is based on [MMdetection Framework](https://github.com/open-mmlab/mmdetection).
@@ -28,12 +30,12 @@ This code is based on [MMdetection Framework](https://github.com/open-mmlab/mmde
 Code has been tested on Pytorch 1.13.1 and CUDA 11.7.
 
 Create Conda Environment and install dependencies:
+
 ```bash
 conda create -n LineFormer python=3.8
 conda activate LineFormer
 bash install.sh
 ```
-
 
 ### Inference
 
@@ -69,7 +71,9 @@ Example extraction result:
 ![demo result](demo/sample_result.png "Detection Result")
 
 ## Citation
+
 If you found our work useful, please cite us as follows:
+
 ```bib
 @InProceedings{10.1007/978-3-031-41734-4_24,
 author="Lal, Jay
