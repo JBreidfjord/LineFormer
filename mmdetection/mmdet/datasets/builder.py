@@ -16,14 +16,17 @@ from .samplers import (ClassAwareSampler, DistributedGroupSampler,
                        DistributedSampler, GroupSampler, InfiniteBatchSampler,
                        InfiniteGroupBatchSampler)
 
-if platform.system() != 'Windows':
+if platform.system() != 'Windows':    
     # https://github.com/pytorch/pytorch/issues/973
     import resource
     rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
     base_soft_limit = rlimit[0]
     hard_limit = rlimit[1]
     soft_limit = min(max(4096, base_soft_limit), hard_limit)
-    resource.setrlimit(resource.RLIMIT_NOFILE, (soft_limit, hard_limit))
+    try:
+        resource.setrlimit(resource.RLIMIT_NOFILE, (soft_limit, hard_limit))
+    except ValueError:
+        print(f'Failed to set RLIMIT_NOFILE to ({soft_limit}, {hard_limit})')
 
 DATASETS = Registry('dataset')
 PIPELINES = Registry('pipeline')
